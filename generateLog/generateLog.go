@@ -26,12 +26,12 @@ type urlInfo struct {
 var wg sync.WaitGroup
 var logChan chan string = make(chan string)
 
-var agentList =make([]string,0)
+var agentList = make([]string, 0)
 
 func main() {
 
 	// 从命令行中 获取 两个参数，1.生成的行数；2.日志文件的路径
-	timeStart := time.Now().UnixNano()/1e6
+	timeStart := time.Now().UnixNano() / 1e6
 	total := flag.Int("total", 100, "how many rows do you want to create")
 	filepath := flag.String("filePath", "/var/log/nginx/dig.log", "log file path")
 	flag.Parse()
@@ -80,7 +80,7 @@ func writeLogToFile(file *os.File, logCh <-chan string) {
 			wg.Done()
 			return
 		}
-		_, err := file.WriteString(log+"\n")
+		_, err := file.WriteString(log + "\n")
 		if err != nil {
 			fmt.Println("write file fail, error:", err)
 		}
@@ -125,7 +125,7 @@ func buildUrl(infos []urlInfo) []string {
 }
 
 func initUrlList() []urlInfo {
-	agentList= append(append(agentList, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36"),
+	agentList = append(append(agentList, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36"),
 		"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0")
 
 	infos := make([]urlInfo, 0)

@@ -6,6 +6,8 @@ import (
 	"encoding/hex"
 	"flag"
 	"fmt"
+	"strconv"
+
 	//"github.com/mediocregopher/radix.v2/redis"
 	"github.com/mediocregopher/radix.v2/pool"
 	"github.com/mgutz/str"
@@ -14,7 +16,6 @@ import (
 	"net/url"
 	"os"
 	"regexp"
-	strconv "strconv"
 	"strings"
 	"sync"
 	"time"
@@ -190,7 +191,6 @@ func parseUrl(uData userData) urlNode {
 	if strings.Contains(uData.data.url, "movie") {
 		urlType = "movie"
 	} else if strings.Contains(uData.data.url, "list") {
-
 		urlType = "list"
 	} else {
 		urlType = "home"
@@ -224,14 +224,33 @@ func getTime(t string, timeType string) string {
 	var format string
 	switch timeType {
 	case "day":
-		format = "2006-01-02"
+		format = "2006/01/02"
+		parse, _ := time.Parse(format, t[0:10])
+
+		year := parse.Year()
+		month := parse.Month()
+		day := parse.Day()
+		return strconv.Itoa(year) + strconv.Itoa(int(month)) + strconv.Itoa(day)
+
 	case "hour":
-		format = "2006-01-02 15"
+		format = "2006/01/02 15"
+		parse, _ := time.Parse(format, t[0:13])
+		year := parse.Year()
+		month := parse.Month()
+		day := parse.Day()
+		hour := parse.Hour()
+		return strconv.Itoa(year) + strconv.Itoa(int(month)) + strconv.Itoa(day) + " " + strconv.Itoa(hour)
 	case "min":
-		format = "2006-01-02 15:04"
+		format = "2006/01/02 15:04"
+		parse, _ := time.Parse(format, t[0:16])
+		year := parse.Year()
+		month := parse.Month()
+		day := parse.Day()
+		hour := parse.Hour()
+		minute := parse.Minute()
+		return strconv.Itoa(year) + strconv.Itoa(int(month)) + strconv.Itoa(day) + " " + strconv.Itoa(hour) + ":" + strconv.Itoa(minute)
 	}
-	parse, _ := time.Parse(t, format)
-	return strconv.FormatInt(parse.Unix(), 10)
+	return time.Now().String()
 }
 
 func readLogFile(file *os.File, logChan chan<- string) {
