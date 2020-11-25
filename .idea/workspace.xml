@@ -22,18 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6cd8fea-1f72-40c0-aa40-8c476b4e7345" name="Default Changelist" comment="version 1.0">
-      <change afterPath="$PROJECT_DIR$/generateLog/generateLog.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generateLog/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generateLog/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/httpServer/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="a6cd8fea-1f72-40c0-aa40-8c476b4e7345" name="Default Changelist" comment="优化 redis-key中的时间格式">
+      <change afterPath="$PROJECT_DIR$/counter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/httpServer/showData.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/教程中网站源码和sql数据/DataBack.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/教程中网站源码和sql数据/gxcms.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/教程中网站源码和sql数据/示例日志文件：dig.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate.log/generateLog.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate.log/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate.log/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/handleLog/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/handleLog/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handleLog/handleLog.go" beforeDir="false" afterPath="$PROJECT_DIR$/handleLog/handleLog.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/httpServer/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/httpServer/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +46,11 @@
   </component>
   <component name="GOROOT" path="$PROJECT_DIR$/../../../GoLang" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1k3ef4Qwf4TLhWerPafi9DStx0E" />
@@ -65,10 +67,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/网站源码和sql数据" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\Go_project\go_generateLog\网站源码和sql数据" />
+      <recent name="D:\Project\Go_project\go_generateLog" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\Go_project\go_generateLog\generate.log" />
     </key>
@@ -93,9 +99,18 @@
     </configuration>
     <configuration name="go build main" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go_generateLog" />
-      <working_directory value="$PROJECT_DIR$/handleLog" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/handleLog/handleLog.go" />
+      <working_directory value="$PROJECT_DIR$/httpServer" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/httpServer/server.go" />
+      <package value="main" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="httpServer" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="go_generateLog" />
+      <working_directory value="$PROJECT_DIR$/httpServer" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/httpServer/server.go" />
       <package value="main" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
@@ -103,11 +118,13 @@
     <list>
       <item itemvalue="Go Build.go build generateLog.go" />
       <item itemvalue="Go Build.go build handleLog.go" />
+      <item itemvalue="Go Build.httpServer" />
       <item itemvalue="Go Build.go build main" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build handleLog.go" />
+        <item itemvalue="Go Build.httpServer" />
         <item itemvalue="Go Build.go build main" />
         <item itemvalue="Go Build.go build generateLog.go" />
       </list>
@@ -127,10 +144,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="version 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 1.0" />
+    <MESSAGE value="优化 redis-key中的时间格式" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化 redis-key中的时间格式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -148,54 +167,58 @@
       <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="457" y="240" key="#Notifications/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1605533851330" />
-    <state x="230" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606227317586">
+    <state x="230" y="70" width="1089" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606314733448">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state x="230" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227317586" />
-    <state x="503" y="141" width="872" height="591" key="#xdebugger.evaluate" timestamp="1606226751904">
+    <state x="230" y="70" width="1089" height="741" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314733448" />
+    <state x="503" y="141" width="872" height="591" key="#xdebugger.evaluate" timestamp="1606314598631">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state x="503" y="141" width="872" height="591" key="#xdebugger.evaluate/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606226751904" />
+    <state x="503" y="141" width="872" height="591" key="#xdebugger.evaluate/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314598631" />
     <state width="833" height="466" key="DebuggerActiveHint" timestamp="1605797277317">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state width="833" height="466" key="DebuggerActiveHint/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1605797277317" />
-    <state x="525" y="157" key="FileChooserDialogImpl" timestamp="1605711668156">
+    <state x="525" y="157" key="FileChooserDialogImpl" timestamp="1606314533402">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state x="525" y="157" key="FileChooserDialogImpl/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1605711668156" />
-    <state width="1506" height="215" key="GridCell.Tab.0.bottom" timestamp="1606227288864">
+    <state x="525" y="157" key="FileChooserDialogImpl/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314533402" />
+    <state width="1506" height="306" key="GridCell.Tab.0.bottom" timestamp="1606316006675">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="215" key="GridCell.Tab.0.bottom/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227288864" />
-    <state width="1506" height="215" key="GridCell.Tab.0.center" timestamp="1606227288863">
+    <state width="1506" height="306" key="GridCell.Tab.0.bottom/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606316006675" />
+    <state width="1506" height="213" key="GridCell.Tab.0.bottom/1920.3.1549.831/0.0.1549.831@1920.3.1549.831" timestamp="1606314852601" />
+    <state width="1506" height="306" key="GridCell.Tab.0.center" timestamp="1606316006675">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="215" key="GridCell.Tab.0.center/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227288863" />
-    <state width="1506" height="215" key="GridCell.Tab.0.left" timestamp="1606227288863">
+    <state width="1506" height="306" key="GridCell.Tab.0.center/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606316006675" />
+    <state width="1506" height="213" key="GridCell.Tab.0.center/1920.3.1549.831/0.0.1549.831@1920.3.1549.831" timestamp="1606314852600" />
+    <state width="1506" height="306" key="GridCell.Tab.0.left" timestamp="1606316006675">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="215" key="GridCell.Tab.0.left/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227288863" />
-    <state width="1506" height="215" key="GridCell.Tab.0.right" timestamp="1606227288863">
+    <state width="1506" height="306" key="GridCell.Tab.0.left/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606316006675" />
+    <state width="1506" height="213" key="GridCell.Tab.0.left/1920.3.1549.831/0.0.1549.831@1920.3.1549.831" timestamp="1606314852600" />
+    <state width="1506" height="306" key="GridCell.Tab.0.right" timestamp="1606316006675">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="215" key="GridCell.Tab.0.right/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227288863" />
-    <state width="1506" height="215" key="GridCell.Tab.1.bottom" timestamp="1606227288864">
+    <state width="1506" height="306" key="GridCell.Tab.0.right/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606316006675" />
+    <state width="1506" height="213" key="GridCell.Tab.0.right/1920.3.1549.831/0.0.1549.831@1920.3.1549.831" timestamp="1606314852600" />
+    <state width="1506" height="377" key="GridCell.Tab.1.bottom" timestamp="1606314649017">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="215" key="GridCell.Tab.1.bottom/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227288864" />
-    <state width="1506" height="215" key="GridCell.Tab.1.center" timestamp="1606227288864">
+    <state width="1506" height="377" key="GridCell.Tab.1.bottom/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314649017" />
+    <state width="1506" height="377" key="GridCell.Tab.1.center" timestamp="1606314649016">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="215" key="GridCell.Tab.1.center/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227288864" />
-    <state width="1506" height="215" key="GridCell.Tab.1.left" timestamp="1606227288864">
+    <state width="1506" height="377" key="GridCell.Tab.1.center/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314649016" />
+    <state width="1506" height="377" key="GridCell.Tab.1.left" timestamp="1606314649016">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="215" key="GridCell.Tab.1.left/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227288864" />
-    <state width="1506" height="215" key="GridCell.Tab.1.right" timestamp="1606227288864">
+    <state width="1506" height="377" key="GridCell.Tab.1.left/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314649016" />
+    <state width="1506" height="377" key="GridCell.Tab.1.right" timestamp="1606314649016">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="215" key="GridCell.Tab.1.right/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227288864" />
+    <state width="1506" height="377" key="GridCell.Tab.1.right/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314649016" />
     <state x="306" y="61" key="SettingsEditor" timestamp="1605705358081">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
@@ -204,18 +227,22 @@
       <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="497" y="157" width="540" height="524" key="StructurePopup/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1604934250557" />
-    <state width="781" height="422" key="XDebugger.FullValuePopup" timestamp="1605708813364">
+    <state x="367" y="148" key="Vcs.Push.Dialog.v2" timestamp="1606227631541">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="781" height="422" key="XDebugger.FullValuePopup/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1605708813364" />
+    <state x="367" y="148" key="Vcs.Push.Dialog.v2/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606227631541" />
+    <state width="781" height="422" key="XDebugger.FullValuePopup" timestamp="1606314598043">
+      <screen x="0" y="0" width="1549" height="831" />
+    </state>
+    <state width="781" height="422" key="XDebugger.FullValuePopup/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314598043" />
     <state x="535" y="141" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1605962365674">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="535" y="141" key="com.goide.refactor.move.GoMoveDeclarationDialog/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1605962365674" />
-    <state x="551" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605962351103">
+    <state x="551" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606314275607">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state x="551" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1605962351103" />
+    <state x="551" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.3.1549.831/0.0.1549.831@0.0.1549.831" timestamp="1606314275607" />
     <state x="297" y="144" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1606039144690">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
@@ -241,6 +268,11 @@
           <url>file://$PROJECT_DIR$/handleLog/handleLog.go</url>
           <line>232</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/httpServer/server.go</url>
+          <line>37</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
